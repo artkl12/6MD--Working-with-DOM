@@ -1,5 +1,9 @@
 import $ from 'jquery';
 import sum from './utils/sum/sum';
+console.log('Ready for coding');
+console.log('Body jQuery node:', $('body'));
+console.log('Body javascript node:', document.querySelector('body'));
+console.log('2 + 3 =', sum(2, 3));
 
 const btn1 = document.getElementById('btn1') as HTMLButtonElement;
 const btn2 = document.getElementById('btn2') as HTMLButtonElement;
@@ -55,8 +59,7 @@ btn1.addEventListener('click', () => {
   function updateNumber() {
     if (count > 10) {
       clearInterval(intervalId);
-    } else {
-        const box6 = document.getElementById("box6") as HTMLDivElement;
+    } else {        
       box6.innerHTML = count.toString();
       count++;
     }
@@ -78,10 +81,16 @@ btn1.addEventListener('click', () => {
     allBoxesColor(), backGroundColor();
   });
   
-  function displayText() {
-    const input = document.getElementById("input") as HTMLInputElement;
-    const copy = document.getElementById("duplicate") as HTMLDivElement;
-    copy.innerHTML = input.value;
-  }
+  // function displayText() {
+  //   const input = document.getElementById("input") as HTMLInputElement;
+  //   const copy = document.getElementById("duplicate") as HTMLDivElement;
+  //   copy.innerHTML = input.value;
+  // }
   
-  
+  document.getElementById("input").onkeyup = function() {myFunction()};
+
+function myFunction() {
+  const input = document.getElementById("input") as HTMLInputElement;
+  const copy = document.getElementById("duplicate") as HTMLDivElement;
+  copy.innerHTML = input.value;
+}
